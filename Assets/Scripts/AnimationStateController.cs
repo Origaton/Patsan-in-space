@@ -19,7 +19,7 @@ public class StateController : MonoBehaviour
 
     void Update()
     {
-        //Дальше плохая реализация, надо переделать в идеале (еще и не работает)
+        //РџР»РѕС…Рѕ СЂРµР°Р»РёР·РѕРІР°РЅРЅРѕ (РµС‰Рµ Рё РЅРµ СЂР°Р±РѕС‚Р°РµС‚)
         if (moveAction.ReadValue<Vector2>().magnitude > 0.1f == true)
         {
             if (runAction.IsPressed())
