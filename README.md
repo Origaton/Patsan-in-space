@@ -1,2 +1,2 @@
-# CPPP-game
+# Patsan-in-space
 
