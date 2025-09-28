@@ -12,17 +12,17 @@ public class TPSPlayerMovement : MonoBehaviour
     private InputAction aimAction;
     private InputAction attackAction;
 
-        [Header("Move")]
+    [Header("Move")]
     [SerializeField] private float walkSpeed = 20f; //скорость ходьбы
     [SerializeField] private float runSpeed = 100f; //скорость бега
     [SerializeField] private float jogSpeed = 50f; //скорость бега трусцой
-    
 
-        [Header("Look")]  // переменные для камеры
+
+    [Header("Look")]  // переменные для камеры
     [SerializeField] private float mouseSensitivity = 100f; // чувствительность мыши
     [SerializeField] private Transform cameraTransform; // берем позицию обекта "камера" , чтобы ее изменять
-    
-    
+
+
     private bool isRunning;
     private bool isJumping;
     private CharacterController controller;
@@ -69,6 +69,6 @@ public class TPSPlayerMovement : MonoBehaviour
         isRunning = runAction.IsPressed();
         float currentSpeed = isRunning ? runSpeed : jogSpeed;
         Vector3 move = (transform.right * moveInput.x + transform.forward * moveInput.y) * currentSpeed;
-        controller.Move(move * Time.deltaTime);   
+        controller.Move(move * Time.deltaTime);
     }
 }

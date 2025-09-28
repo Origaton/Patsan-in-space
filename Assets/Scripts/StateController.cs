@@ -3,15 +3,15 @@ using UnityEngine.InputSystem;
 
 public class StateController : MonoBehaviour
 {
-    
+
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction runAction;
 
     private Animator animator;
     private State currentState;
-    
-    private void Start() 
+
+    private void Start()
     {
         animator = GetComponent<Animator>();
         currentState = new IdleState(animator, 1f);
@@ -30,7 +30,7 @@ public class StateController : MonoBehaviour
                 currentState.Exit();
                 currentState = new RunState(animator, 1f);
                 currentState.Enter();
-                
+
             }
             else
             {

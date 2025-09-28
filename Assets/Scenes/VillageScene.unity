@@ -353,6 +353,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce8d6ea2e260c7f468a8abafaa49e6ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 676792579}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce8d6ea2e260c7f468a8abafaa49e6ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 676792580}
   m_SourcePrefab: {fileID: 100100000, guid: ce8d6ea2e260c7f468a8abafaa49e6ee, type: 3}
 --- !u!1 &676792573 stripped
 GameObject:
@@ -426,7 +429,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676792573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e99834a462ec040ac871784722a68f, type: 3}
   m_Name: 
@@ -470,7 +473,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01400c9fde432024db57126a1a143d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateController
-  characterState: {fileID: 676792579}
+--- !u!114 &676792580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676792573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287be859319af4c47891aa9598ec9a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TPSPlayerMovementAlternative
+  walkSpeed: 20
+  runSpeed: 100
+  jogSpeed: 50
+  mouseSensitivity: 100
+  gravityStrength: 9.81
+  gravity: {x: 0, y: -9.81, z: 0}
+  cameraTransform: {fileID: 79897473}
 --- !u!1 &780930819
 GameObject:
   m_ObjectHideFlags: 0

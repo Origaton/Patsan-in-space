@@ -7,7 +7,7 @@ public abstract class State
     public State(Animator animator)
     {
         this.animator = animator;
-    } 
+    }
 
     public abstract void Enter();
 

@@ -19,7 +19,7 @@ public class animatorScript : MonoBehaviour
 
     void Update()
     {
-       
+
         if (moveAction.ReadValue<Vector2>().magnitude > 0.1f == true)
         {
             if (runAction.IsPressed())
