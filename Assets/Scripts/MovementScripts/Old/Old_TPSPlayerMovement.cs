@@ -13,7 +13,7 @@ public class TPSPlayerMovement : MonoBehaviour
     private InputAction attackAction;
 
     [Header("Move")]
-    [SerializeField] private float walkSpeed = 20f; //скорость ходьбы
+    //[SerializeField] private float walkSpeed = 20f; //скорость ходьбы
     [SerializeField] private float runSpeed = 100f; //скорость бега
     [SerializeField] private float jogSpeed = 50f; //скорость бега трусцой
 

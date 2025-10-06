@@ -15,11 +15,12 @@ public class TPSPlayerMovementAlternative : MonoBehaviour
 
     [Header("Parametrs")]
     //[SerializeField] private float walkSpeed = 20f;
-    [SerializeField] private float runSpeed = 100f;
-    [SerializeField] private float jogSpeed = 50f;
+    [SerializeField] private float runSpeed = 50f;
+    [SerializeField] private float jogSpeed = 20f;
     [SerializeField] private float mouseSensitivity = 100f;
-    [SerializeField] private float gravityStrength = 9.81f;
+    [SerializeField] private float gravityStrength = 10f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float slopeLimit = 45f;
     private Vector3 gravity;
     private float verticalRotation = 0f;
     private float horizontalRotation = 0f;
@@ -44,6 +45,8 @@ public class TPSPlayerMovementAlternative : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         gravity = Vector3.down * gravityStrength;
+
+        controller.slopeLimit = slopeLimit;
 
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["look"];
