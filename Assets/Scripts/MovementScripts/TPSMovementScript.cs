@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,9 +5,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class TPSMovementScript : MonoBehaviour
 {
-    [SerializeField] private float jogSpeed = 5f;
-    [SerializeField] private float runSpeed = 15f;
-    [SerializeField] private float rotationSpeed = 15f;
+    [SerializeField] private float jogSpeed;
+    [SerializeField] private float runSpeed;
+    [SerializeField] private float rotationSpeed;
     private float currentSpeed;
 
     [SerializeField] private Transform cameraObject;

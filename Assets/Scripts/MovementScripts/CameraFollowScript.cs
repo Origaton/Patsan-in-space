@@ -5,24 +5,35 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class CameraFollowScript : MonoBehaviour
 {
-    [SerializeField] private float cameraFollowSpeed = 0.05f;
-    [SerializeField] private float cameraLookSpeed = 20f;
+    [SerializeField] private float cameraFollowSpeed;
+    [SerializeField] private float cameraLookSpeed;
+    [SerializeField] private float minCameraAngle;
+    [SerializeField] private float maxCameraAngle;
+
+    [Header("Camera zoom")]
+    [SerializeField] private float cameraZoomSpeed;
+    [SerializeField] private float minCameraZoom;
+    [SerializeField] private float maxCameraZoom;
     private float rotationX;
     private float rotationY;
 
+    [Header("Other")]
     [SerializeField] private Transform targetTransform;
     private PlayerInput playerInput;
     private InputAction lookActoin;
+    private InputAction zoomAction;
 
     [SerializeField] private Vector3 offset;
     private Vector2 lookInput;
+    private Vector2 zoomInput;
     private Vector3 targetPosition;
     private Vector3 cameraFollowVelocity = Vector3.zero;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        lookActoin = playerInput.actions["look"];
+        lookActoin = playerInput.actions["Look"];
+        zoomAction = playerInput.actions["Zoom"];
 
         offset = transform.position - targetTransform.position;
 
@@ -34,6 +45,7 @@ public class CameraFollowScript : MonoBehaviour
     private void LateUpdate()
     {
         UpdateCamera();
+        HandleCameraZoom();
     }
 
     private void UpdateCamera()
@@ -43,13 +55,20 @@ public class CameraFollowScript : MonoBehaviour
         rotationX -= lookInput.y * cameraLookSpeed * Time.deltaTime;
         rotationY += lookInput.x * cameraLookSpeed * Time.deltaTime;
 
-        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+        //Лучше переделать на коллизию, наверное
+        rotationX = Mathf.Clamp(rotationX, minCameraAngle, maxCameraAngle);
 
         Vector3 rotatedOffset = Quaternion.Euler(rotationX, rotationY, 0f) * offset;
         targetPosition = Vector3.SmoothDamp(transform.position, targetTransform.position + rotatedOffset, ref cameraFollowVelocity, cameraFollowSpeed);
         transform.position = targetPosition;
 
-        //Доработать этот моментик
         transform.LookAt(targetTransform);
+    }
+
+    private void HandleCameraZoom()
+    {
+        zoomInput = zoomAction.ReadValue<Vector2>();
+        offset.z += zoomInput.y * cameraZoomSpeed * Time.deltaTime;
+        offset.z = Mathf.Clamp(offset.z, -maxCameraZoom, -minCameraZoom);
     }
 }
