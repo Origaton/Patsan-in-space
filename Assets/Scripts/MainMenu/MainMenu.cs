@@ -11,6 +11,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    public void MainMenuScene ()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void ExitGame()
     {
         Debug.Log("Игра закрылась");
