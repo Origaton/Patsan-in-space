@@ -7,13 +7,16 @@ public class CameraFollowScript : MonoBehaviour
 {
     [SerializeField] private float cameraFollowSpeed;
     [SerializeField] private float cameraLookSpeed;
-    [SerializeField] private float minCameraAngle;
-    [SerializeField] private float maxCameraAngle;
 
     [Header("Camera zoom")]
     [SerializeField] private float cameraZoomSpeed;
     [SerializeField] private float minCameraZoom;
     [SerializeField] private float maxCameraZoom;
+
+    [Header("Camera collision")]
+    [SerializeField] private float minDistanceToPlayer;
+    [SerializeField] private float minCameraAngle;
+    [SerializeField] private float maxCameraAngle;
     private float rotationX;
     private float rotationY;
 
@@ -42,7 +45,7 @@ public class CameraFollowScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         UpdateCamera();
         HandleCameraZoom();
@@ -54,12 +57,11 @@ public class CameraFollowScript : MonoBehaviour
 
         rotationX -= lookInput.y * cameraLookSpeed * Time.deltaTime;
         rotationY += lookInput.x * cameraLookSpeed * Time.deltaTime;
-
-        //Лучше переделать на коллизию, наверное
         rotationX = Mathf.Clamp(rotationX, minCameraAngle, maxCameraAngle);
 
         Vector3 rotatedOffset = Quaternion.Euler(rotationX, rotationY, 0f) * offset;
-        targetPosition = Vector3.SmoothDamp(transform.position, targetTransform.position + rotatedOffset, ref cameraFollowVelocity, cameraFollowSpeed);
+        Vector3 adjustedOffset = CollisionHandle(rotatedOffset);
+        targetPosition = Vector3.SmoothDamp(transform.position, targetTransform.position + adjustedOffset, ref cameraFollowVelocity, cameraFollowSpeed);
         transform.position = targetPosition;
 
         transform.LookAt(targetTransform);
@@ -70,5 +72,18 @@ public class CameraFollowScript : MonoBehaviour
         zoomInput = zoomAction.ReadValue<Vector2>();
         offset.z += zoomInput.y * cameraZoomSpeed * Time.deltaTime;
         offset.z = Mathf.Clamp(offset.z, -maxCameraZoom, -minCameraZoom);
+    }
+
+    private Vector3 CollisionHandle(Vector3 rotatedOffset)
+    {
+        Vector3 direction = rotatedOffset.normalized;
+        float distance = rotatedOffset.magnitude;
+
+        if (Physics.Raycast(targetTransform.position, direction, out RaycastHit hit, distance))
+        {
+            distance = Mathf.Max(hit.distance - 0.1f, minDistanceToPlayer);
+        }
+
+        return direction * distance;
     }
 }

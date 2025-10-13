@@ -8,7 +8,9 @@ public class TPSMovementScript : MonoBehaviour
     [SerializeField] private float jogSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float gravityMultiplier;
     private float currentSpeed;
+    private float verticalVelocity;
 
     [SerializeField] private Transform cameraObject;
     private CharacterController characterController;
@@ -37,6 +39,7 @@ public class TPSMovementScript : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
+        HandleGravitation();
     }
 
     public void HandleMovement()
@@ -56,7 +59,8 @@ public class TPSMovementScript : MonoBehaviour
             moveDirection = forward * moveInput.y + right * moveInput.x;
             moveDirection.Normalize();
         }
-        characterController.Move(currentSpeed * Time.deltaTime * moveDirection);
+        Vector3 finalMove = currentSpeed * moveDirection + Vector3.down * verticalVelocity;
+        characterController.Move(finalMove * Time.deltaTime);
     }
 
     public void HandleRotation()
@@ -66,6 +70,18 @@ public class TPSMovementScript : MonoBehaviour
             targetRotation = Quaternion.LookRotation(moveDirection);
             playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             transform.rotation = playerRotation;
+        }
+    }
+
+    public void HandleGravitation()
+    {
+        if (!characterController.isGrounded)
+        {
+            verticalVelocity += -Physics.gravity.y * gravityMultiplier * Time.deltaTime;
+        }
+        else
+        {
+            verticalVelocity = 0f;
         }
     }
 }
