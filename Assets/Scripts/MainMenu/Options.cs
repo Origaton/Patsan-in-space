@@ -77,7 +77,7 @@ public class Options : MonoBehaviour
     // Обновляем громкость всех источников музыки
     private void UpdateMusicVolume()
     {
-        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+        AudioSource[] audioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
         foreach (AudioSource source in audioSources)
         {
             // Проверяем, является ли источник музыкой (например, по тегу или имени)
@@ -91,7 +91,7 @@ public class Options : MonoBehaviour
     // Обновляем громкость всех источников звуковых эффектов
     private void UpdateSoundVolume()
     {
-        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+        AudioSource[] audioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
         foreach (AudioSource source in audioSources)
         {
             // Проверяем, является ли источник звуковым эффектом
