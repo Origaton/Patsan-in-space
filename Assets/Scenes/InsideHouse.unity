@@ -721,6 +721,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4010859196364772, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
   m_PrefabInstance: {fileID: 1622506872}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1470270159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2851185528854115280, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
+  m_PrefabInstance: {fileID: 1622506872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb699d7cf0014d4b816d53e2480a099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewDoorScript
 --- !u!1001 &1559706658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,6 +740,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1830103821396270243, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
+      propertyPath: onInteracted.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830103821396270243, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
+      propertyPath: onInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830103821396270243, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
+      propertyPath: onInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1470270159}
+    - target: {fileID: 1830103821396270243, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
+      propertyPath: onInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830103821396270243, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
+      propertyPath: onInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830103821396270243, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
+      propertyPath: onInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewDoorScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830103821396270243, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
+      propertyPath: onInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2266921991789442541, guid: 5e1be01e06e0b5c4f9191d325f93e355, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.04653
@@ -909,6 +948,10 @@ PrefabInstance:
     - target: {fileID: 1291120190594464445, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
       propertyPath: m_DefaultActionMap
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851185528854115280, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
+      propertyPath: sceneNameToLoad
+      value: OutsideLocation
       objectReference: {fileID: 0}
     - target: {fileID: 5830784855144351837, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
       propertyPath: playerTransform

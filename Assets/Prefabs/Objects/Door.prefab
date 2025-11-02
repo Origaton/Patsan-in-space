@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4716468972294172}
   - component: {fileID: 33871001900267870}
   - component: {fileID: 23073875618214738}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: doorWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,8 @@ GameObject:
   - component: {fileID: 33054106736233338}
   - component: {fileID: 23100516516946502}
   - component: {fileID: 1291120190594464445}
-  - component: {fileID: 5830784855144351837}
-  m_Layer: 0
+  - component: {fileID: 2851185528854115280}
+  m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5830784855144351837
+--- !u!114 &2851185528854115280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,11 +221,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1546866186244504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26fe9e1d0fc5d244fa6653f701fd0709, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cb699d7cf0014d4b816d53e2480a099, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorScript
+  m_EditorClassIdentifier: Assembly-CSharp::NewDoorScript
   sceneNameToLoad: 
-  interactionDistance: 2
 --- !u!1 &1870003852406290
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +236,7 @@ GameObject:
   - component: {fileID: 4097244817786526}
   - component: {fileID: 33342164186318546}
   - component: {fileID: 23466217962419670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: doorKnob
   m_TagString: Untagged
   m_Icon: {fileID: 0}

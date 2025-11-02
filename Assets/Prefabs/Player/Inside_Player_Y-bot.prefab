@@ -1216,6 +1216,7 @@ GameObject:
   - component: {fileID: 4795414439212514986}
   - component: {fileID: 1740441519053962522}
   - component: {fileID: 6957896031962173283}
+  - component: {fileID: 1830103821396270243}
   m_Layer: 0
   m_Name: Y Bot
   m_TagString: Untagged
@@ -1347,6 +1348,25 @@ MonoBehaviour:
   runSpeed: 10
   rotationSpeed: 10
   gravityMultiplier: 3
+--- !u!114 &1830103821396270243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3571259933652242922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e229b87f4da83741b53ae1188152613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionScript
+  interactionDistance: 1
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  onInteracted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3624202188865974961
 GameObject:
   m_ObjectHideFlags: 0
