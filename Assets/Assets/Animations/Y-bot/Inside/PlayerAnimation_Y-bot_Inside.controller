@@ -280,7 +280,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerAnimation_Y-bot
+  m_Name: PlayerAnimation_Y-bot_Inside
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isWalking
@@ -480,7 +480,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 97f793920b1b62b448722ae166da1a94, type: 2}
+  m_Motion: {fileID: 7400000, guid: 11b81cb755fd57c4e856ac86e14dacda, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

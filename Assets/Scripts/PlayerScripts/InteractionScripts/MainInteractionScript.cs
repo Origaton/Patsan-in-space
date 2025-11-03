@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerInput))]
-public class InteractionScript : MonoBehaviour
+public class MainInteractionScript : MonoBehaviour
 {
     [Header("Interaction Settings")]
     [SerializeField] private float interactionDistance;
@@ -19,19 +19,22 @@ public class InteractionScript : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         useAction = playerInput.actions["Use"];
 
-        useAction.performed += ctx => CheckInteraction();
+        useAction.performed += CheckInteraction;
     }
 
-    private void CheckInteraction()
+    private void CheckInteraction(InputAction.CallbackContext ctx)
     {
-        //Нужно добавить взаимодействие на небольшом расстоянии
-        onInteracted.Invoke();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactionDistance, interactableLayer);
+        if (hitColliders.Length > 0)
+        {
+            onInteracted?.Invoke();
+        }
     }
 
-    // Просто визуализация области взаимодействия
+    //Просто область взаимодействия 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactionDistance);
+        Gizmos.DrawWireSphere(transform.position + Vector3.up, interactionDistance);
     }
 }

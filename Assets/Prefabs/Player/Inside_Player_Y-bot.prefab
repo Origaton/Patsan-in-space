@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 4795414439212514986}
   - component: {fileID: 1740441519053962522}
   - component: {fileID: 6957896031962173283}
-  - component: {fileID: 1830103821396270243}
+  - component: {fileID: 2532982260890599667}
   m_Layer: 0
   m_Name: Y Bot
   m_TagString: Untagged
@@ -1348,7 +1348,7 @@ MonoBehaviour:
   runSpeed: 10
   rotationSpeed: 10
   gravityMultiplier: 3
---- !u!114 &1830103821396270243
+--- !u!114 &2532982260890599667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1357,16 +1357,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3571259933652242922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e229b87f4da83741b53ae1188152613, type: 3}
+  m_Script: {fileID: 11500000, guid: 73316494dad171944ab1233eaed63d5a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractionScript
+  m_EditorClassIdentifier: Assembly-CSharp::DoorSceneLoaderScript
   interactionDistance: 1
-  interactableLayer:
+  loadSceneLayer:
     serializedVersion: 2
-    m_Bits: 128
-  onInteracted:
+    m_Bits: 256
+  onSceneLoad:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DoorScript, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3624202188865974961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,13 +1951,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6135830286305886355}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08715578, y: -0, z: -0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 2.15, z: -4}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -2, y: 4, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2266921991789442541}
-  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!20 &5020519071567653696
 Camera:
   m_ObjectHideFlags: 0
@@ -1955,8 +1967,8 @@ Camera:
   m_GameObject: {fileID: 6135830286305886355}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1977,11 +1989,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 2
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2092,11 +2104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InsideCameraFollowScript
   targetTransform: {fileID: 1027754727676944460}
-  deadzoneWidth: 5
-  deadzoneHeight: 5
-  deadzoneOffset: 5
   followSpeed: 2
   parallaxFactor: 0.5
+  minX: 0
+  maxX: 0
+  minZ: 0
+  maxZ: 0
 --- !u!1 &6189580155477588818
 GameObject:
   m_ObjectHideFlags: 0
