@@ -8,15 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: e6b9c91ffe0b14c499d6ca01087cb872
-  - enabled: 0
-    path: Assets/Scenes/Demo.unity
-    guid: 469fd1056f3e6e34fb4cd9bfb0c7ee72
   - enabled: 1
-    path: Assets/Scenes/OutsideLocation.unity
+    path: Assets/Scenes/Locations/Outside_Location.unity
     guid: 344640d45238ebd44b44702adc93599d
   - enabled: 1
-    path: Assets/Scenes/InsideHouse.unity
+    path: Assets/Scenes/Locations/House_1_Scene.unity
     guid: 35d447387f3c33c4fbca367e8503df2c
+  - enabled: 1
+    path: Assets/Scenes/Locations/House_2_Scene.unity
+    guid: 7c3c7248e23478846bd09c099ea4abfa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4a42b8d6e89445645a18b092e09246a7, type: 3}
   m_UseUCBPForAssetBundles: 0

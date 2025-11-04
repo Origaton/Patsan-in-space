@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,11 +6,22 @@ public class DoorScript : MonoBehaviour
 {
     [SerializeField] private string sceneNameToLoad;
 
-    public void LoadScene()
+    void Awake()
     {
-        if (!string.IsNullOrEmpty(sceneNameToLoad))
+        GlobalEventManager.onLocationDoorClicked.AddListener(LoadScene);
+        string name = gameObject.name;
+        //Debug.Log("Я подписался! " + name);
+    }
+
+    public void LoadScene(string doorName)
+    {
+        if (gameObject.name == doorName)
         {
-            SceneManager.LoadScene(sceneNameToLoad);
+            if (!string.IsNullOrEmpty(sceneNameToLoad))
+            {
+                SceneManager.LoadScene(sceneNameToLoad);
+                //Debug.Log("Я загрузил " + sceneNameToLoad);
+            }
         }
     }
 }
